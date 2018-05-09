@@ -83,7 +83,6 @@ Don't forget to register and unregister your receiver in the activity onResume/o
 
 ## Develop
 
----
 Any contributions for this repository is blessed, just make sure to:
 * Design in DI style with Dagger 2.1
 * Write your code in Kotlin
