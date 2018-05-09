@@ -3,6 +3,7 @@ package com.osapps.broadcastreceiverlibrary.dagger.modules
 import android.content.Context
 import android.content.SharedPreferences
 import com.osapps.broadcastreceiverlibrary.network.NetworkReceiver
+import com.osapps.broadcastreceiverlibrary.sms.SmsReceiver
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -20,5 +21,11 @@ class BroadcastReceiverLibraryBuilder {
     @Singleton
     fun provideNetworkReceiver(): NetworkReceiver {
         return NetworkReceiver()
+    }
+
+    @Provides
+    @Singleton
+    fun provideSmsReceiver(): SmsReceiver {
+        return SmsReceiver()
     }
 }

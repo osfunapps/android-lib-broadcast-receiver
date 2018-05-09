@@ -7,7 +7,7 @@ import android.content.Intent
 
 import com.osapps.broadcastreceiverlibrary.utils.IntentFilterProducer
 
-import java.util.HashMap
+import kotlin.collections.HashMap
 
 /**
  * Created by osapps on 07/05/2018.
@@ -38,13 +38,13 @@ import java.util.HashMap
  * NOTE FOR DEVELOPERS:
  * to add receiver:
  * 1) create a receiver object (the object the receiver will return; like the [NewNetworkStateObj])
- * 2) create an observer (the whistle blower for any changes in the receiver; like the [NetworkObserver])
+ * 2) create an observer (the whistle blower for any changes in the receiver; like the [network.NetworkObserver])
  * 3) create a receiver, and implement the necessary functions (the receiver..; like the [NetworkReceiver])
  *
  * NOTICE: for each of them you will need to implement functions, so just look how the network change
  * works and you will understand. It's pretty easy.
  *
- * Please follow the Dagger 2.10, generics and observer pattern design lines
+ * Please follow the Dagger 2.10, generics and observer pattern
  * @author  osApps
  * @version 1.0
  * @since   05-09-18
@@ -61,19 +61,12 @@ abstract class BroadcastReceiver<in T : BroadcastObserver, E : BroadcastObj> : a
     //getter for the intent filter. It will change by the specific receiver
     protected abstract val intentFilterName: String
 
-    override fun create() {
-        if (observersMap != null) return
-        observersMap = HashMap()
-    }
-
-
     override fun remove(activity: Activity) {
         //unsubscribe from all of the observers and nullify the list
         for (observer in observersMap!!.values)
             unsubscribeObserver(observer)
         clearAllObservers()
         observersMap = null
-
         //unregister this receiver
         //if (isRegistered)
             unregister(activity)
@@ -84,6 +77,7 @@ abstract class BroadcastReceiver<in T : BroadcastObserver, E : BroadcastObj> : a
     //register this receiver to activity
     override fun register(activity: Activity) {
         //isRegistered = true
+        if(observersMap == null) observersMap = HashMap()
         activity.registerReceiver(this, IntentFilterProducer.produceFilter(intentFilterName))
     }
 
