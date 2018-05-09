@@ -3,6 +3,7 @@ package com.osapps.broadcastreceiverlibrary.network;
 import android.content.Intent;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 
 import com.osapps.broadcastreceiverlibrary.generic.BroadcastReceiver;
 
@@ -14,12 +15,13 @@ public class NetworkReceiver extends BroadcastReceiver<NetworkObserver, NewNetwo
 
 
     @Override
-    protected void notifyObserver(NetworkObserver observer, NewNetworkStateObj object) {
+    protected void notifyObserver(@NonNull NetworkObserver observer, @NonNull NewNetworkStateObj object) {
         observer.onNetworkChanged(object);
     }
 
+    @NonNull
     @Override
-    protected NewNetworkStateObj extractIntent(Intent intent) {
+    protected NewNetworkStateObj extractIntent(@NonNull Intent intent) {
         Bundle extras = intent.getExtras();
         assert extras != null;
         NetworkInfo info = extras.getParcelable("networkInfo");
@@ -27,6 +29,7 @@ public class NetworkReceiver extends BroadcastReceiver<NetworkObserver, NewNetwo
         return new NewNetworkStateObj(info.getState());
     }
 
+    @NonNull
     @Override
     protected String getIntentFilterName() {
         return "android.net.conn.CONNECTIVITY_CHANGE";

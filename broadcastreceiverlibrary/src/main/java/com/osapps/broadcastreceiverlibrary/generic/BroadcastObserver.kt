@@ -1,4 +1,4 @@
-package com.osapps.broadcastreceiverlibrary.generic;
+package com.osapps.broadcastreceiverlibrary.generic
 
 /**
  * Created by osapps on 07/05/2018.
@@ -8,6 +8,4 @@ package com.osapps.broadcastreceiverlibrary.generic;
  * to handle two observer implementation at the same class and we don't want them to have the same
  * name cause it will make conflicts for the client.
  */
-public interface BroadcastObserver {
-
-}
+interface BroadcastObserver
