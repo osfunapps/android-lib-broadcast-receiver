@@ -4,7 +4,8 @@
 
 This library meant to handle all of the Broadcast Receiver operations using the Observer design pattern, to keep updating all of the broadcast listeners. 
 
-For example, using this library you can keep track of the network status, no matter where are you in your App. just inject the NetworkReceiver object to your instance and you good to go!
+For example, by using this library you can keep track of the app network status, no matter where are you in your app. 
+Just inject the NetworkReceiver object to your instance and you good to go!
 
 This library works on Google's Dagger 2.1 android design, the recommended app architecture by Google.
 
