@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 
 
-import com.osapps.broadcastreceiverlibrary.utils.IntentFilterProducer
+import com.osapps.broadcastreceiverlibrary.utils.produceFilter
 
 import kotlin.collections.HashMap
 
@@ -78,7 +78,7 @@ abstract class BroadcastReceiver<in T : BroadcastObserver, E : BroadcastObj> : a
     override fun register(activity: Activity) {
         //isRegistered = true
         if(observersMap == null) observersMap = HashMap()
-        activity.registerReceiver(this, IntentFilterProducer.produceFilter(intentFilterName))
+        activity.registerReceiver(this, produceFilter(intentFilterName))
     }
 
     //unregister this receiver to activity

@@ -1,7 +1,6 @@
 package com.osapps.broadcastreceiverlibrary.dagger.modules
 
-import android.content.Context
-import android.content.SharedPreferences
+import com.osapps.broadcastreceiverlibrary.headphones.HeadphonesReceiver
 import com.osapps.broadcastreceiverlibrary.network.NetworkReceiver
 import com.osapps.broadcastreceiverlibrary.sms.SmsReceiver
 import dagger.Module
@@ -28,4 +27,12 @@ class BroadcastReceiverLibraryBuilder {
     fun provideSmsReceiver(): SmsReceiver {
         return SmsReceiver()
     }
+
+    @Provides
+    @Singleton
+    fun provideHeadphonesReceiver(): HeadphonesReceiver {
+        return HeadphonesReceiver()
+    }
+
+
 }
