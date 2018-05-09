@@ -14,8 +14,11 @@ This library works on Google's Dagger 2.1 android design, the recommended app ar
 
 add the gradle dependency:
 
-```compile 'com.github.osfunapps:weedle-android-core-library:v1.0.2' ```
-
+```groovy
+dependencies {
+    implementation 'com.github.osfunapps:android-lib-broadcast-receiver:v1.0.2'
+ }   
+```
 
 ## Usage
 
