@@ -17,7 +17,7 @@ add the gradle dependency:
 ```compile 'com.github.osfunapps:weedle-android-core-library:v1.0.2' ```
 
 
-### Usage
+## Usage
 
 1) add the library module **BroadcastReceiverLibraryBuilder::class** to your app component.
 
@@ -81,7 +81,7 @@ And that's it.
 
 Don't forget to register and unregister your receiver in the activity onResume/onStop.
 
-### Developing
+## Develop
 
 ---
 Any contributions for this repository is blessed, just make sure to:
