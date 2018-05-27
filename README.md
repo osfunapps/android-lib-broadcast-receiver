@@ -23,15 +23,15 @@ dependencies {
 
 ## Usage
 
-1) add the library module **BroadcastReceiverLibraryBuilder::class** to your app component.
+1) add the library module **BroadcastReceiverLibraryBuilder::class** to your core component (singleton one).
 
     Example:
     ```
     @Singleton
     @Component(modules = [
-        AndroidSupportInjectionModule::class,
-       AppModule::class,
-      ActivityBuilder::class,
+      AppModule::class,
+      NetworkModule::class,
+      ...
       BroadcastReceiverLibraryBuilder::class])
     ```
     
